@@ -1,0 +1,67 @@
+https://aws.amazon.com/getting-started/
+
+Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud. AWS calls these virtual machines 'instances'.
+
+1. Launch a Linux Virtual Machine.
+	
+	a. EC2 Launch Instance Wizard or AWS CLI command to create new instances.
+	    Select AMI (windows, Linux or other), instances type (default t2.micro for free), Launch.
+	    RHEL-7.4_HVM-20180103-x86_64-2-Hourly2-GP2 (ami-0b1e356e)
+		
+	b. Create new key pair save to local (ex. C:\user\{yourusername}\.ssh\MyKeyPair.pem).
+	
+	c. Connect instance from 
+	   Windows using Git Bash terminal. 
+	      enter ssh -i 'c:\hwang\AWS\domekey.pem' ec2-user@52.27.212.125
+	
+	   Linux using Putty or VM as terminal:
+		  enter ssh -i 'c:\hwang\AWS\domekey.pem' ec2-user@52.27.212.125
+		
+	d. Terminate. at EC2 Console, select the box next to the instance you created.  Then click the Actions button, navigate to Instance State, and click Terminate.	
+	
+2. Launch a Windows Vitual Machine.
+	
+	a. EC2 Launch Instance Wizard or AWS CLI command to create new instances.
+	    Select AMI instances type, Launch.
+	    Microsoft Windows Server 2012 R2 Base
+		
+	b. Create new key pair save to local (ex. C:\user\{yourusername}\.ssh\MyKeyPair.pem).
+
+	c. Connect instance from Remote Desktop Protocol (RDP) client.
+	     The User name defaults to Administrator
+         To receive your password, click Get Password/Choose File/demokey.pem/Decrypt Password.
+		 
+	d. Terminate. at EC2 Console, select the box next to the instance you created.  Then click the Actions button, navigate to Instance State, and click Terminate.	
+
+3. Run a Serverless "Hello, World!" with AWS Lambda.
+     Launch AWS\Service\Compute\Lambda => AWS Lambda console 
+	 https://us-east-2.console.aws.amazon.com/lambda/home?region=us-east-2#/home
+	 
+	 exports.handler = (event, context, callback) => {
+    // Succeed with the string "Hello world!"
+    callback(null, 'Hello world!');
+	};
+	Click Run button
+	
+	Click create function
+	Select Blueprints
+	In the Filter box, type in hello-world-python and select the hello-world-python blueprint.
+	Configure and Create Your Lambda Function
+	
+4. Deploy Docker Containers on Amazon Elastic Container Service (Amazon ECS)
+	
+	Amazon Elastic Container Service (Amazon ECS) is the Amazon Web Service you use to run Docker applications on a scalable cluster.
+	
+    Amazon ECS is a highly scalable, high performance container management service that supports Docker containers and allows you to easily run applications on a managed cluster of Amazon EC2 instances.
+
+5. Create and Query a NoSQL Table with Amazon DynamoDB.
+
+	create a simple table, add data, scan and query the data, delete data, and delete the table using the DynamoDB Console. DynamoDB is a fully managed NoSQL database that supports both document and key-value store models. Its flexible data model, reliable performance, and automatic scaling of throughput capacity, makes it a great fit for mobile, web, gaming, ad tech, IoT, and many other applications.
+
+6. Create and Connect to a MySQL Database with Amazon RDS.
+
+7. Create and Connect to a MariaDB Database with Amazon RDS.
+
+8. Create and Connect to a Microsoft SQL Server Database with Amazon RDS
+	
+9. 	
