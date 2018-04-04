@@ -1,0 +1,16 @@
+## Manager AWS EC2 instance
+## add aws cli scripts to task for creat, start, display, stop, delete instance 
+## run ansible playbooks file => ansible-playbook  automation_manager_instances.yml
+
+- hosts: 127.0.0.1
+  tasks: 
+    - name: list regions centers
+      command: aws ec2 describe-regions
+    - name: list instance access keys
+      command: aws iam list-access-keys            
+    - name: list AWS EC2 instance 
+      command: aws ec2 describe-instances --output table
+    - name: list AWS instance with inteance-id
+      command: aws ec2 describe-instances --instance-id i-050c47304f802640a --output table
+
+      

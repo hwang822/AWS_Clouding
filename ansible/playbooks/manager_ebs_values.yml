@@ -1,0 +1,28 @@
+## Manager AWS EBS values
+## add aws cli scripts to task for creat, attach, display, diattach, delete EBS 
+## run ansible playbooks file => ansible-playbook  list_ebs_values.yml
+
+- hosts: 127.0.0.1
+  tasks: 
+    - name: Create AWS Elastic Block Store (EBS)
+      command: aws ec2 create-volume --size 80 --region us-east-2 --availability-zone us-east-2c --volume-type gp2
+    - name: list AWS EBS valuems
+      command: aws ec2 describe-volumes --output table
+    - name: attache EBS to an instnace 
+      command: aws ec2 attach-volume --volume-id vol-0d62f87a1ca015c53 --instance-id i-0b2d2d01c191ca2f3 --device /dev/sdc
+    - name: check instance attached ebs
+      command: aws ec2 describe-instances --output table --instance-id i-0b2d2d01c191ca2f3
+    - name: create ebs snapshot
+      command: create-snapshot --volume-id  vol-0d62f87a1ca015c53 --description "create snapshot"
+    - name: list ebs snapshot valuems
+      command: aws ec2 describe-snapshots --snapshot-id snap-01a09909420761c20 --output table
+    - name: create new ebs from snapshot to increase size from 4GB to 6GB
+      command: aws ec2 create-volume --volume-type gp2 --snapshot-id snap-0242082ac44800f2e --availability-zone us-east-2c --size 6
+    - name: display ebs status
+      command: aws ec2 describe-volume-status
+    - name: detach one ebs from instnace
+      command: aws ec2 detach-volume --volume-id vol-0fb6f39847b7378ed
+    - name: delete one ebs 
+      command: aws ec2 delete-volume --volume-id vol-0fb6f39847b7378ed
+      
+      

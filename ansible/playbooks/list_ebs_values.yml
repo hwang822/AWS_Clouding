@@ -1,0 +1,10 @@
+## Manager AWS EBS values
+## add aws cli scripts to task for display values and display one volume with id in table format.
+## run ansible playbooks file => ansible-playbook  list_ebs_values.yml
+- hosts: 127.0.0.1
+  tasks: 
+    - name: list AWS EBS values 
+      command: aws ec2 describe-volumes --output table
+
+    - name: list AWS EBS one valuem
+      command: aws ec2 describe-volumes --output table      
