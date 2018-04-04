@@ -1,0 +1,8 @@
+---
+ - hosts: localhost
+   connection: localhost
+   gather_facts: False
+   
+   vars:
+      ec2_access_key:
+	  ec2_sec
